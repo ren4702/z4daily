@@ -1,0 +1,7 @@
+opencv-python
+numpy
+mss
+pyautogui
+pillow
+paddlepaddle==3.2.0
+paddleocr

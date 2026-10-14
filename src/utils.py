@@ -215,3 +215,95 @@ def find_all_images(screen, template_name, threshold=0.7):
             unique.append(p)
     unique.sort(key=lambda p: (p[0], p[1]))
     return unique
+
+import json
+
+CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
+
+_calib = None
+_config_cache = None
+
+
+def load_config():
+    global _config_cache
+    if _config_cache is None:
+        with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+            _config_cache = json.load(f)
+    return _config_cache
+
+
+def calibrate_from_saves():
+    """
+    在存档界面校准。
+    返回 (origin_x, origin_y, scale)，并保存到全局变量 _calib。
+    """
+    global _calib
+    config = load_config()
+    base_saves = config["base_saves"]
+
+    screen = capture_full_screen()
+
+    found = []
+    for num_str in base_saves.keys():
+        pos, conf, _ = find_image(screen, f"save_{num_str}.png", threshold=0.7)
+        if pos:
+            found.append((num_str, pos))
+            print(f"  找到存档 {num_str}: {pos}（相似度 {conf:.2f}）")
+        else:
+            print(f"  ⚠️ 存档 {num_str} 匹配失败")
+
+    if len(found) < 2:
+        print(f"❌ 校准失败：只匹配到 {len(found)} 个存档，需要至少 2 个")
+        return None
+
+    # 用所有配对算缩放，取平均
+    scales = []
+    for a in range(len(found)):
+        for b in range(a + 1, len(found)):
+            n1, p1 = found[a]
+            n2, p2 = found[b]
+            o1 = base_saves[n1]
+            o2 = base_saves[n2]
+            base_dist = ((o2["x"] - o1["x"])**2 + (o2["y"] - o1["y"])**2) ** 0.5
+            curr_dist = ((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2) ** 0.5
+            if base_dist > 0:
+                scales.append(curr_dist / base_dist)
+
+    scale = sum(scales) / len(scales)
+
+    # 用所有存档反推原点，取平均
+    oxs, oys = [], []
+    for n, p in found:
+        o = base_saves[n]
+        oxs.append(p[0] - int(o["x"] * scale))
+        oys.append(p[1] - int(o["y"] * scale))
+
+    origin_x = sum(oxs) // len(oxs)
+    origin_y = sum(oys) // len(oys)
+
+    _calib = (origin_x, origin_y, scale)
+    print(f"✅ 校准完成：原点 ({origin_x}, {origin_y})，缩放 {scale:.3f}x（用 {len(found)} 个存档）")
+    return _calib
+
+
+def scale_pos(base_pos):
+    """基准坐标 → 当前屏幕坐标。未校准时直接返回基准坐标"""
+    global _calib
+    if _calib is None:
+        return base_pos   # 兜底：未校准直接用原坐标
+    ox, oy, s = _calib
+    return (ox + int(base_pos[0] * s), oy + int(base_pos[1] * s))
+
+
+def scale_roi(base_roi):
+    """基准 ROI → 当前屏幕 ROI。未校准时直接返回基准 ROI"""
+    global _calib
+    if _calib is None:
+        return base_roi
+    ox, oy, s = _calib
+    return {
+        "left": ox + int(base_roi["left"] * s),
+        "top": oy + int(base_roi["top"] * s),
+        "width": int(base_roi["width"] * s),
+        "height": int(base_roi["height"] * s),
+    }

@@ -1,0 +1,412 @@
+{
+  "1001": {
+    "stage": 1,
+    "question_keywords": ["离开村子", "族长", "危险任务"],
+    "options": [
+      {"text": "坚定不移的接受任务", "require": {"power": 4}, "success": {"power": 1}, "fail": {"health": -1}},
+      {"text": "拒绝接受任务，自己出去冒险", "require": {"charm": 4}, "success": {}, "fail": {"health": -1}},
+      {"text": "默默不做声", "require": {"luck": 4}, "success": {"charm": -1}, "fail": {"wisdom": -1}},
+      {"text": "推荐你的仇敌", "require": {"wisdom": 4}, "success": {"wisdom": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "1002": {
+    "stage": 1,
+    "question_keywords": ["商店", "必需品", "钱不太够"],
+    "options": [
+      {"text": "卖掉护身符，购买漂亮的衣服", "require": {"luck": 4}, "success": {"luck": -1, "smart": 1}, "fail": {"charm": -1}},
+      {"text": "卖掉鞋子，购买游戏攻略", "require": {"smart": 4}, "success": {"smart": -1, "luck": 1}, "fail": {"charm": -1}},
+      {"text": "不买了，用废弃的强化石升级装备", "require": {"luck": 5}, "success": {"power": 1}, "fail": {"health": -1}},
+      {"text": "借点钱买强化石", "require": {"charm": 3}, "success": {"charm": -1, "power": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "1003": {
+    "stage": 1,
+    "question_keywords": ["族长", "礼物", "选择"],
+    "options": [
+      {"text": "究天古剑", "require": {"power": 4}, "success": {"power": 1}, "fail": {"health": -1, "power": -1}},
+      {"text": "绝世秘籍", "require": {"wisdom": 4}, "success": {"health": 1, "power": 1}, "fail": {"health": -1, "power": 2}},
+      {"text": "宠物-招财猫", "require": {"charm": 4}, "success": {"luck": 1}, "fail": {"charm": -1}},
+      {"text": "坐骑-小羊驼", "require": {"smart": 4}, "success": {"smart": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "1004": {
+    "stage": 1,
+    "question_keywords": ["称手的好武器", "冒险准备"],
+    "options": [
+      {"text": "出去抢一件", "require": {"power": 4}, "success": {"charm": -1}, "fail": {"health": -1}},
+      {"text": "找族长借一件", "require": {"charm": 3}, "success": {"power": 1, "smart": -1}, "fail": {}},
+      {"text": "墙角找了根棒子凑合用", "require": {"luck": 5}, "success": {"power": 1}, "fail": {"charm": -1}},
+      {"text": "找锻造大师学习锻造技术", "require": {"wisdom": 5}, "success": {"power": 2}, "fail": {"health": -1, "power": -1}}
+    ]
+  },
+  "2001": {
+    "stage": 2,
+    "question_keywords": ["乡间的小路", "老人家", "摔倒在地"],
+    "options": [
+      {"text": "盘膝打坐，肯定是白骨精变的", "require": {"wisdom": 4, "power": 3}, "success": {"wisdom": 1}, "fail": {"health": -1, "charm": -1}},
+      {"text": "扶他一把", "require": {"charm": 5}, "success": {"health": 1, "charm": 1}, "fail": {"health": -1}},
+      {"text": "找个人来作证，再扶", "require": {"smart": 4}, "success": {}, "fail": {"charm": -1}},
+      {"text": "肯定是碰瓷的，离得远远的", "require": {"health": 99}, "success": {}, "fail": {"charm": -1, "wisdom": -1}}
+    ]
+  },
+  "2002": {
+    "stage": 2,
+    "question_keywords": ["失眠", "屋顶数星星", "圣诞老公公"],
+    "options": [
+      {"text": "偷偷靠近偷走圣诞老公公的坐骑", "require": {"smart": 4}, "success": {"smart": 1}, "fail": {"charm": -1}},
+      {"text": "看他不爽，上去一顿暴打", "require": {"power": 5}, "success": {"power": 1}, "fail": {"health": -1}},
+      {"text": "含情脉脉上去要礼包", "require": {"charm": 3}, "success": {"wisdom": 1, "luck": 1}, "fail": {}},
+      {"text": "什么也不做，悄悄离去", "require": {"health": 99}, "success": {}, "fail": {"wisdom": -1}}
+    ]
+  },
+  "2003": {
+    "stage": 2,
+    "question_keywords": ["皇宫", "秘宝", "飞天大盗"],
+    "options": [
+      {"text": "联合飞天大盗，一同盗宝", "require": {"smart": 5}, "success": {"charm": -1, "power": 2}, "fail": {"health": -1}},
+      {"text": "找寻其踪迹，和他对战", "require": {"power": 4, "smart": 3}, "success": {"health": -1, "power": 2}, "fail": {}},
+      {"text": "以重宝设陷阱诱捕大盗", "require": {"wisdom": 5}, "success": {"luck": 1, "wisdom": 1}, "fail": {"charm": -1}},
+      {"text": "向皇宫守卫举报", "require": {"charm": 5}, "success": {"charm": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "2004": {
+    "stage": 2,
+    "question_keywords": ["雪莲幼苗", "药香"],
+    "options": [
+      {"text": "在旁边打坐，吸收药香", "require": {"health": 3}, "success": {"health": 1}, "fail": {"health": -1}},
+      {"text": "采摘回家培养", "require": {"smart": 5}, "success": {"health": 1, "wisdom": 1}, "fail": {"health": -1}},
+      {"text": "做个记号，等它成熟再来", "require": {"wisdom": 5}, "success": {"health": 1, "wisdom": 1}, "fail": {}},
+      {"text": "此处灵气浓郁，四处搜寻", "require": {"luck": 5}, "success": {"health": 2}, "fail": {"health": -1, "smart": -1}}
+    ]
+  },
+  "2005": {
+    "stage": 2,
+    "question_keywords": ["须弥山角", "远洋大船"],
+    "options": [
+      {"text": "和航海家学习航行经验", "require": {"wisdom": 4}, "success": {"charm": 1, "wisdom": 1}, "fail": {"charm": -1}},
+      {"text": "直接上船，出海寻宝", "require": {"luck": 5}, "success": {"health": -1}, "fail": {"health": -1}},
+      {"text": "邀上三五好友，一起出游", "require": {"charm": 4, "luck": 4}, "success": {"luck": 1}, "fail": {"charm": -1}},
+      {"text": "在船底凿个洞", "require": {"charm": 4}, "success": {"charm": -1}, "fail": {"health": -1}}
+    ]
+  },
+  "2006": {
+    "stage": 2,
+    "question_keywords": ["造梦威廉", "偶遇"],
+    "options": [
+      {"text": "抢走威廉的零食", "require": {"power": 4}, "success": {"health": 1}, "fail": {"health": -1}},
+      {"text": "投稿生存大冒险题目", "require": {"wisdom": 4}, "success": {"power": 1}, "fail": {"wisdom": 1}},
+      {"text": "和威廉比比谁帅", "require": {"charm": 4}, "success": {"charm": 1}, "fail": {}},
+      {"text": "问威廉要更新剧透", "require": {"luck": 4}, "success": {"wisdom": 1}, "fail": {}}
+    ]
+  },
+  "2007": {
+    "stage": 2,
+    "question_keywords": ["神兽森林", "蓝色水鼠"],
+    "options": [
+      {"text": "定是妖怪，上前打他", "require": {"health": 99}, "success": {}, "fail": {"health": -1}},
+      {"text": "和它谈天谈地聊心情，将其收服", "require": {"charm": 5}, "success": {"power": 1, "charm": 1}, "fail": {"health": -1}},
+      {"text": "守株待兔，在水中埋伏它", "require": {"luck": 5}, "success": {"power": 1, "luck": 1}, "fail": {"health": -1}},
+      {"text": "奇珍重宝多有异兽相伴，跟随它", "require": {"smart": 5}, "success": {"power": 1, "smart": 1}, "fail": {"health": -1, "smart": -1}}
+    ]
+  },
+  "2008": {
+    "stage": 2,
+    "question_keywords": ["长安城", "第一件想去做的事"],
+    "options": [
+      {"text": "城中如此繁华，四处逛逛", "require": {"wisdom": 4}, "success": {"wisdom": 1}, "fail": {"charm": -1}},
+      {"text": "买把好武器防身", "require": {"charm": 4, "luck": 3}, "success": {"power": 1}, "fail": {"charm": -1}},
+      {"text": "去告示栏看看", "require": {"power": 4}, "success": {"charm": 1}, "fail": {"health": -1}},
+      {"text": "探查城中密道", "require": {"smart": 4, "charm": 3}, "success": {"smart": 1, "power": 1}, "fail": {"smart": -1}}
+    ]
+  },
+  "2009": {
+    "stage": 2,
+    "question_keywords": ["玄武门", "玄武石像"],
+    "options": [
+      {"text": "石像完好无损，一定暗藏玄机", "require": {"wisdom": 5}, "success": {"power": 1}, "fail": {}},
+      {"text": "在石像上刻字：XX到此一游", "require": {"luck": 5}, "success": {"charm": -1}, "fail": {"charm": -1}},
+      {"text": "和石像合影留恋", "require": {"charm": 4}, "success": {"charm": 1}, "fail": {"charm": -1}},
+      {"text": "目不斜视，径直走过", "require": {"smart": 4}, "success": {}, "fail": {"smart": -1}}
+    ]
+  },
+  "2010": {
+    "stage": 2,
+    "question_keywords": ["联盟", "招人", "受邀加入"],
+    "options": [
+      {"text": "去联盟药园逛逛", "require": {"smart": 5}, "success": {"charm": 1, "smart": 1}, "fail": {}},
+      {"text": "和其他盟友切磋PK", "require": {"power": 5}, "success": {"power": 1, "charm": 1}, "fail": {}},
+      {"text": "为联盟贡献出份力", "require": {"luck": 4}, "success": {"power": 1}, "fail": {}},
+      {"text": "宣传自己的联盟，招募更多人", "require": {"charm": 4, "wisdom": 3}, "success": {"charm": 2}, "fail": {"charm": -1}}
+    ]
+  },
+  "3001": {
+    "stage": 3,
+    "question_keywords": ["普陀山脚", "四头虫", "黑影"],
+    "options": [
+      {"text": "帮四头虫", "require": {"power": 6, "smart": 5}, "success": {"power": 1, "charm": -1}, "fail": {"health": -1}},
+      {"text": "帮黑影", "require": {"power": 7}, "success": {"health": 1}, "fail": {"health": -1}},
+      {"text": "帮忙调解", "require": {"charm": 7}, "success": {"charm": 1}, "fail": {"health": -2}},
+      {"text": "转身逃开", "require": {"smart": 6}, "success": {}, "fail": {"health": -1, "power": -1}}
+    ]
+  },
+  "3002": {
+    "stage": 3,
+    "question_keywords": ["登山途中", "电闪雷鸣", "黑影"],
+    "options": [
+      {"text": "大喊：造梦威廉在此，何方妖怪", "require": {"charm": 5, "luck": 4}, "success": {}, "fail": {"health": -1, "charm": -1}},
+      {"text": "什么也不说，冲向黑影给他一拳", "require": {"power": 6}, "success": {"power": -1, "health": 1}, "fail": {"health": -2}},
+      {"text": "问道：阁下有什么难处，还望道来", "require": {"charm": 6}, "success": {"health": 1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "转身逃开", "require": {"smart": 6}, "success": {"smart": -1}, "fail": {"health": -2}}
+    ]
+  },
+  "3003": {
+    "stage": 3,
+    "question_keywords": ["朱雀街", "牛妖特处士"],
+    "options": [
+      {"text": "冲上去和特处士血拼", "require": {"power": 6}, "success": {"power": 1}, "fail": {"health": -2}},
+      {"text": "去找个帮手", "require": {"charm": 5, "wisdom": 4}, "success": {"charm": 1}, "fail": {"health": -2}},
+      {"text": "先藏起来，等特处士睡着了再冲", "require": {"wisdom": 5, "smart": 4}, "success": {"health": -1, "smart": 1}, "fail": {"health": -2}},
+      {"text": "绕路而走，打个酱油", "require": {"smart": 4, "luck": 4}, "success": {"health": -1}, "fail": {"health": -1, "smart": -1}}
+    ]
+  },
+  "3004": {
+    "stage": 3,
+    "question_keywords": ["双叉岭", "虎精", "锁甲"],
+    "options": [
+      {"text": "勇者无畏，拿出兵器较量一番", "require": {"power": 6}, "success": {"power": 1}, "fail": {"health": -2}},
+      {"text": "后退几步，寻到好地势与他作战", "require": {"smart": 5, "wisdom": 4}, "success": {"smart": 1}, "fail": {"health": -2}},
+      {"text": "转动脑筋，寻找虎精的破绽", "require": {"wisdom": 5, "power": 4}, "success": {"wisdom": 1}, "fail": {"health": -2}},
+      {"text": "和虎精套近乎，见机行事", "require": {"charm": 5, "luck": 4}, "success": {"charm": 1}, "fail": {"health": -1, "charm": -1}}
+    ]
+  },
+  "3005": {
+    "stage": 3,
+    "question_keywords": ["山崖上", "仙风道骨", "老者打坐"],
+    "options": [
+      {"text": "盘膝在一旁打坐", "require": {"health": 1}, "success": {"wisdom": 1}, "fail": {}},
+      {"text": "二话不说，上去给他一拳", "require": {"power": 7}, "success": {"power": 1}, "fail": {"health": -1}},
+      {"text": "唤醒老者，询问如何下山", "require": {"health": 1}, "success": {"smart": 1}, "fail": {}},
+      {"text": "什么也不做，悄悄离去", "require": {"health": 1}, "success": {"luck": 1}, "fail": {}}
+    ]
+  },
+  "3006": {
+    "stage": 3,
+    "question_keywords": ["天庭", "蟠桃大会", "七仙女"],
+    "options": [
+      {"text": "帮七仙女一起摘仙桃", "require": {"charm": 6}, "success": {"charm": 2}, "fail": {}},
+      {"text": "调戏一下", "require": {"health": 99}, "success": {}, "fail": {"health": -1}},
+      {"text": "问问蟠桃大会有没请我", "require": {"luck": 6}, "success": {}, "fail": {}},
+      {"text": "偷个桃吃", "require": {"health": 99}, "success": {}, "fail": {"health": -1}}
+    ]
+  },
+  "3007": {
+    "stage": 3,
+    "question_keywords": ["时光之舟", "须弥山", "菩萨"],
+    "options": [
+      {"text": "跟船长讨要时光之礼", "require": {"charm": 7}, "success": {"power": 2}, "fail": {"power": 1}},
+      {"text": "时光重现，再次体验辉煌战斗", "require": {"power": 7}, "success": {"power": 1, "wisdom": 1}, "fail": {"wisdom": 1}},
+      {"text": "在时光商店购买物品", "require": {"luck": 6}, "success": {"luck": 1}, "fail": {}},
+      {"text": "观察时光之舟", "require": {"wisdom": 6}, "success": {"wisdom": 1}, "fail": {}}
+    ]
+  },
+  "3008": {
+    "stage": 3,
+    "question_keywords": ["须弥山", "幼童", "气球"],
+    "options": [
+      {"text": "翻个跟头拿走气球，占为己有", "require": {"health": 99}, "success": {}, "fail": {"health": -1, "charm": -1}},
+      {"text": "帮幼童取回气球", "require": {"smart": 6}, "success": {"charm": 1, "luck": 1}, "fail": {"smart": -1}},
+      {"text": "做鬼脸哄哄幼童", "require": {"charm": 5}, "success": {"charm": 1}, "fail": {"charm": -1}},
+      {"text": "视而不见", "require": {"luck": 5}, "success": {"charm": -1}, "fail": {"health": -1}}
+    ]
+  },
+  "3009": {
+    "stage": 3,
+    "question_keywords": ["联盟集会所", "观音菩萨", "阵营"],
+    "options": [
+      {"text": "加入青龙阵营", "require": {"luck": 6}, "success": {"luck": 1}, "fail": {}},
+      {"text": "加入白虎阵营", "require": {"power": 6}, "success": {"power": 1}, "fail": {}},
+      {"text": "加入朱雀阵营", "require": {"smart": 6}, "success": {"smart": 1}, "fail": {}},
+      {"text": "加入玄武阵营", "require": {"health": 6}, "success": {"health": 1}, "fail": {}}
+    ]
+  },
+  "3010": {
+    "stage": 3,
+    "question_keywords": ["锦绣峰", "通天巨树"],
+    "options": [
+      {"text": "此树必有妖异，钻进树洞查看", "require": {"luck": 6}, "success": {"health": 1}, "fail": {"charm": -1}},
+      {"text": "爬上树梢看风景", "require": {"smart": 6}, "success": {"charm": -1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "骑上危月燕飞到树顶和芙蓉仙子对决", "require": {"power": 6}, "success": {"charm": 1}, "fail": {"health": -1, "power": -1}},
+      {"text": "千年巨树必然成精，和巨树聊天", "require": {"charm": 6}, "success": {"wisdom": 1}, "fail": {"health": -1}}
+    ]
+  },
+  "3011": {
+    "stage": 3,
+    "question_keywords": ["罗汉堂", "十八座罗汉"],
+    "options": [
+      {"text": "挑战托塔罗汉", "require": {"power": 5, "wisdom": 4}, "success": {"charm": 1}, "fail": {"health": -1}},
+      {"text": "在罗汉堂中打坐", "require": {"wisdom": 6}, "success": {"health": 1, "wisdom": 1}, "fail": {"health": 1}},
+      {"text": "在罗汉雕像前跪拜", "require": {"luck": 6}, "success": {"luck": 1}, "fail": {"health": -1}},
+      {"text": "拜欢喜罗汉为师", "require": {"charm": 6}, "success": {"power": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "3012": {
+    "stage": 3,
+    "question_keywords": ["深夜", "破庙", "老旧"],
+    "options": [
+      {"text": "用力踹门而入", "require": {"luck": 5}, "success": {"health": -1, "power": -1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "轻声敲门，请求借住一宿", "require": {"wisdom": 6}, "success": {"wisdom": 1}, "fail": {}},
+      {"text": "嗅一嗅是否有妖气", "require": {"health": 5}, "success": {"health": -1}, "fail": {"health": -1, "power": -1, "smart": -1}},
+      {"text": "破庙有鬼，先跑为妙", "require": {"smart": 5}, "success": {"wisdom": 1}, "fail": {"smart": -1}}
+    ]
+  },
+  "3013": {
+    "stage": 3,
+    "question_keywords": ["平安村", "小童", "铁笼"],
+    "options": [
+      {"text": "拿起兵器决战斑衣鳜婆，解救小童", "require": {"power": 6}, "success": {"charm": 1, "health": 1}, "fail": {"health": -2}},
+      {"text": "趁斑衣鳜婆睡觉时偷偷救出小童", "require": {"smart": 6}, "success": {"smart": 1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "和斑衣鳜婆搭讪，让她放了小童", "require": {"charm": 6}, "success": {"power": 1}, "fail": {"health": -1, "charm": -1}},
+      {"text": "不管他，离开平安村", "require": {"luck": 5}, "success": {"luck": 1, "charm": -1}, "fail": {"health": -1}}
+    ]
+  },
+  "3014": {
+    "stage": 3,
+    "question_keywords": ["兜率宫", "炼丹炉", "仙丹"],
+    "options": [
+      {"text": "赶走童子，打开炼丹炉服用仙丹", "require": {"power": 5, "luck": 5}, "success": {"power": 1, "health": 1}, "fail": {"health": -1}},
+      {"text": "帮童子炼丹", "require": {"charm": 6}, "success": {"power": 1, "health": 1}, "fail": {}},
+      {"text": "跳入炼丹炉中", "require": {"smart": 5, "luck": 5}, "success": {"power": 1, "smart": 1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "一脚踢翻炼丹炉", "require": {"health": 99}, "success": {"luck": 1, "charm": -1}, "fail": {"charm": -2}}
+    ]
+  },
+  "3015": {
+    "stage": 3,
+    "question_keywords": ["凶兽涛杌", "外挂", "抢走奖励"],
+    "options": [
+      {"text": "找到证据，向群主举报", "require": {"health": 1}, "success": {"power": 1, "wisdom": 1}, "fail": {}},
+      {"text": "联系盟主，将开挂的人踢出联盟", "require": {"health": 1}, "success": {"charm": 1, "wisdom": 1}, "fail": {}},
+      {"text": "为了奖励，我也来用外挂", "require": {"health": 99}, "success": {}, "fail": {"health": -9, "charm": -9}},
+      {"text": "什么也不做，自个生闷气", "require": {"health": 99}, "success": {}, "fail": {"health": -1, "wisdom": -1}}
+    ]
+  },
+  "4001": {
+    "stage": 4,
+    "question_keywords": ["观音", "通天教主", "十二祖巫"],
+    "options": [
+      {"text": "与观音合作，阻止十二祖巫被释放", "require": {"power": 9}, "success": {"charm": 2}, "fail": {"health": -2}},
+      {"text": "与通天教主合作，释放十二祖巫", "require": {"charm": 8, "power": 6}, "success": {"smart": 2, "charm": -1}, "fail": {"health": -1, "charm": -1}},
+      {"text": "谁给的好处多，就跟谁合作", "require": {"wisdom": 8, "power": 6}, "success": {"power": 2, "charm": -1}, "fail": {"health": -2, "charm": -2}},
+      {"text": "只是路过，打个酱油", "require": {"smart": 8, "luck": 6}, "success": {"health": -1, "smart": 1}, "fail": {"health": -2}}
+    ]
+  },
+  "4002": {
+    "stage": 4,
+    "question_keywords": ["十二祖巫", "唐僧", "受伤"],
+    "options": [
+      {"text": "送唐僧去看大夫", "require": {"charm": 8}, "success": {"luck": 1}, "fail": {"health": -1}},
+      {"text": "替唐僧去寻找他的徒弟", "require": {"smart": 9}, "success": {"power": 1, "smart": 1}, "fail": {"health": -2}},
+      {"text": "把唐僧的行踪情报卖给通天教主", "require": {"wisdom": 8}, "success": {"power": 1, "charm": -1}, "fail": {"health": -1}},
+      {"text": "把唐僧赶走", "require": {"health": 99}, "success": {}, "fail": {"health": -1}}
+    ]
+  },
+  "4003": {
+    "stage": 4,
+    "question_keywords": ["琉璃宫", "妖怪腾空"],
+    "options": [
+      {"text": "观察妖怪走动路线，谨慎跟上", "require": {"smart": 8, "wisdom": 6}, "success": {"wisdom": 1, "smart": 1}, "fail": {"health": -1}},
+      {"text": "勇往直前，无畏无惧", "require": {"luck": 9}, "success": {"luck": 1}, "fail": {"health": -2}},
+      {"text": "此处无路，另寻他法", "require": {"wisdom": 8, "smart": 6}, "success": {"wisdom": 1, "smart": -1}, "fail": {"health": -1}},
+      {"text": "上前与妖怪大战三百回合", "require": {"power": 8}, "success": {"health": -1, "power": 1}, "fail": {"health": -1}}
+    ]
+  },
+  "4004": {
+    "stage": 4,
+    "question_keywords": ["林间小路", "哮天犬"],
+    "options": [
+      {"text": "踹它一脚", "require": {"health": 99}, "success": {}, "fail": {"health": -1, "smart": -1}},
+      {"text": "帮它寻找主人二郎神", "require": {"smart": 8}, "success": {"smart": 1}, "fail": {"wisdom": -1}},
+      {"text": "给它一根肉骨头", "require": {"charm": 8}, "success": {"charm": 1, "power": 1}, "fail": {"charm": -1}},
+      {"text": "不管它", "require": {"luck": 8}, "success": {"health": 1}, "fail": {"charm": -1}}
+    ]
+  },
+  "4005": {
+    "stage": 4,
+    "question_keywords": ["螺旋地狱", "修炼佳境"],
+    "options": [
+      {"text": "毅然进入，实力在战斗中提升", "require": {"power": 9}, "success": {"power": 1, "wisdom": 1}, "fail": {"health": -2, "power": 1}},
+      {"text": "此处阴森可怖，不宜久留，撤", "require": {"smart": 8}, "success": {"smart": 1}, "fail": {"health": -1, "smart": -1}},
+      {"text": "五毒罗盘似有异象，上前研究", "require": {"luck": 7, "wisdom": 6}, "success": {"health": 1, "wisdom": 1}, "fail": {}},
+      {"text": "拜五毒阎罗为师，学习各种技艺", "require": {"charm": 9}, "success": {"power": 1, "wisdom": 1, "smart": 1, "charm": 1}, "fail": {"health": -2}}
+    ]
+  },
+  "4006": {
+    "stage": 4,
+    "question_keywords": ["下山途中", "老者", "棋盘"],
+    "options": [
+      {"text": "坐下来和他对弈", "require": {"wisdom": 9}, "success": {"power": 1, "wisdom": 1}, "fail": {"charm": -1}},
+      {"text": "拍一拍他的肩膀看看是不是还活着", "require": {"power": 8}, "success": {"charm": 1}, "fail": {"health": -1}},
+      {"text": "寻找一位能和他对弈的棋手", "require": {"smart": 8}, "success": {"charm": 1}, "fail": {}},
+      {"text": "随便挪动一颗棋子", "require": {"luck": 9}, "success": {"power": 1, "wisdom": 1}, "fail": {"health": -1}}
+    ]
+  },
+  "4007": {
+    "stage": 4,
+    "question_keywords": ["幻镜阁", "百眼魔君", "八卦"],
+    "options": [
+      {"text": "勇闯幻境阁，决战百眼魔君", "require": {"power": 9}, "success": {"power": 1}, "fail": {"health": -1}},
+      {"text": "上前研究，揣摩八卦阵", "require": {"wisdom": 8}, "success": {"wisdom": 1}, "fail": {"health": -1, "charm": -1}},
+      {"text": "在八卦阵内四处转悠", "require": {"luck": 8}, "success": {"luck": 1}, "fail": {"health": -2}},
+      {"text": "说服百眼魔君，要求放行", "require": {"charm": 9}, "success": {"charm": 1}, "fail": {"smart": -1}}
+    ]
+  },
+  "5001": {
+    "stage": 5,
+    "question_keywords": ["碧游宫", "通天教主", "通天法力"],
+    "options": [
+      {"text": "果断拒绝，拿起武器与通天教主大战", "require": {"power": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "叩头拜师，向通天教主学习绝世魔功", "require": {"power": 7, "wisdom": 9}, "success": {}, "fail": {"health": -3}},
+      {"text": "假装同意，趁机偷袭", "require": {"wisdom": 9, "luck": 7}, "success": {}, "fail": {"health": -3}},
+      {"text": "拒绝合作，掉头就离开", "require": {"smart": 9, "wisdom": 7}, "success": {}, "fail": {"health": -3}}
+    ]
+  },
+  "5002": {
+    "stage": 5,
+    "question_keywords": ["未央宫", "金之祖巫", "金光灿灿"],
+    "options": [
+      {"text": "勇闯未央宫，决战金之祖巫", "require": {"power": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "土豪爷爷，我要跟你做朋友", "require": {"charm": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "将金之祖巫引到玄武门", "require": {"smart": 9, "wisdom": 7}, "success": {}, "fail": {"health": -3}},
+      {"text": "溜之大吉", "require": {"smart": 9, "luck": 7}, "success": {}, "fail": {"health": -3}}
+    ]
+  },
+  "5003": {
+    "stage": 5,
+    "question_keywords": ["木之祖巫", "神光金岭", "宝塔"],
+    "options": [
+      {"text": "火烧神光金岭，灭掉木之祖巫", "require": {"wisdom": 9, "luck": 7}, "success": {}, "fail": {"health": -3}},
+      {"text": "登至塔顶，决战木之祖巫", "require": {"power": 9, "smart": 7}, "success": {}, "fail": {"health": -3}},
+      {"text": "等木之祖巫离开，修葺破损的寺庙", "require": {"health": 99}, "success": {}, "fail": {"health": -3}},
+      {"text": "吃个桃，压压惊", "require": {"health": 99}, "success": {}, "fail": {"health": -3}}
+    ]
+  },
+  "5004": {
+    "stage": 5,
+    "question_keywords": ["普陀山脚", "法华灵洞", "漩涡"],
+    "options": [
+      {"text": "乘船去湖中心一探究竟", "require": {"luck": 8, "smart": 8}, "success": {}, "fail": {"health": -3}},
+      {"text": "潜入湖底，决战水之祖巫", "require": {"power": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "大喊大叫，把怪物引出来", "require": {"power": 7, "wisdom": 9}, "success": {}, "fail": {"health": -3}},
+      {"text": "找东海龙宫的伙伴来帮忙", "require": {"charm": 10}, "success": {}, "fail": {"health": -3}}
+    ]
+  },
+  "5005": {
+    "stage": 5,
+    "question_keywords": ["金顶云海", "火之祖巫", "火海"],
+    "options": [
+      {"text": "赶紧灭火", "require": {"charm": 9, "smart": 7}, "success": {}, "fail": {"health": -3}},
+      {"text": "逃之夭夭", "require": {"smart": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "隔岸观火", "require": {"wisdom": 10}, "success": {}, "fail": {"health": -3}},
+      {"text": "冲入火海，决战火之祖巫", "require": {"power": 10}, "success": {}, "fail": {"health": -3}}
+    ]
+  }
+}

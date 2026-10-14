@@ -1,31 +1,33 @@
-from utils import wait_and_click, capture_full_screen, find_image, click_at
+from utils import wait_and_click, calibrate_from_saves
 import time
 
-def login_and_select_save():
-    print("=== 登录并选择存档 ===")
-    
+
+def login_and_select_save(save_number):
+    print(f"=== 登录并选择存档 {save_number} ===")
+
     # 1. 点击“开始游戏”
-    if not wait_and_click("begin.png", timeout=10, desc="开始游戏按钮"):
+    if not wait_and_click("start_game.png", timeout=10, desc="开始游戏按钮"):
         print("❌ 找不到开始游戏按钮")
         return False
-    time.sleep(2)  # 等待存档界面弹出
+    time.sleep(2)
 
-    # 2. 找到“玉兔”存档并点击
-    screen = capture_full_screen()
-    pos, conf, _ = find_image(screen, "yutu.png", threshold=0.7)
-    if pos:
-        print(f"✅ 找到玉兔存档（相似度 {conf:.2f}），点击 {pos}")
-        click_at(pos[0], pos[1])
-        return True
-    else:
-        print(f"❌ 没找到玉兔存档，最高相似度 {conf:.2f}")
+    # 2. 校准
+    print("  正在校准缩放和位置...")
+    if not calibrate_from_saves():
+        print("❌ 校准失败，退出")
         return False
+
+    # 3. 点击指定存档
+    template = f"save_{save_number}.png"
+    if not wait_and_click(template, timeout=10, desc=f"存档 {save_number}"):
+        print(f"❌ 找不到存档 {save_number}")
+        return False
+    time.sleep(5)
+
+    print(f"✅ 存档 {save_number} 进入完成")
+    return True
 
 
 if __name__ == "__main__":
-    print("3秒后开始，请切到游戏开始界面...")
-    time.sleep(3)
-    if login_and_select_save():
-        print("✅ 登录流程完成")
-    else:
-        print("⚠️ 登录流程中断")
+    print("3秒后开始，请手动停在登录界面...")
+    login_and_select_save(1)

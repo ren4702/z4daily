@@ -11,91 +11,76 @@ from guard import go_to_guard
 from adventure import go_to_adventure
 from glacier import go_to_glacier
 from xuehai import go_to_xuehai
-from active import go_to_active
 from pet_task import go_to_pet_task
-from utils import calibrate_scale
+from active import go_to_active
+from utils import wait_and_click, calibrate_scale
 
-def run_daily_tasks():
-    print("🚀 开始执行每日任务\n")
 
-    # 1. 登录并选择存档
-   #if not login_and_select_save():
-       #print("❌ 登录流程失败，任务终止")
-       #return
-   #print()
+def run_single_save_tasks():
+    """单个存档内的全部日常任务"""
+    # 1. 回主城
+    if not go_to_main_city():
+        print("❌ 无法回到主城")
+        return False
 
-    # 2. 回到主城（只做一次）
-    #if not go_to_main_city():
-      #  print("❌ 无法回到主城，任务终止")
-      #  return
-   # print()
+   
+    # 3. 依次执行任务
+    tasks = [
+        ("联盟贡献", go_to_union),
+        ("神秘商店", go_to_mystery_shop),
+        ("宠装采集", go_to_pet_collect),
+        ("骑装养成", go_to_mount_train),
+        ("竞技场", go_to_arena),
+        ("斗宠大会", go_to_douchong),
+        ("守卫须弥山", go_to_guard),
+        ("冒险", go_to_adventure),
+        ("悲鸣冰川", go_to_glacier),
+        ("幽冥血海", go_to_xuehai),
+        ("宠物任务", go_to_pet_task),
+        ("活跃奖励", go_to_active),
+    ]
 
-    # 登录完成、回到主城后
+    for task_name, task_func in tasks:
+        print(f"\n{'='*40}")
+        print(f"▶ 执行：{task_name}")
+        print(f"{'='*40}")
+        if not task_func():
+            print(f"⚠️ {task_name} 失败，继续下一个任务")
+        print()
+
+    print("🎉 本存档所有任务完成")
+    return True
+
+
+def run_all_saves(save_numbers):
+    """按顺序处理多个存档"""
+    # 全程只校准一次（登录界面 start_game.png 可见）
     print("正在校准缩放比例...")
-    calibrate_scale("mystery_shop.png")   # 用"世界"按钮校准，因为它稳定且一直可见
-
-    # 3. 联盟贡献（结束时自己点红叉回主城）
-    if not go_to_union():
-        print("⚠️ 联盟贡献失败，继续下一个任务")
+    if not calibrate_scale("start_game.png"):
+        print("⚠️ 校准失败，将使用多尺度兜底匹配")
     print()
+    
+    for num in save_numbers:
+        print(f"\n{'#'*50}")
+        print(f"# 开始处理存档 {num}")
+        print(f"{'#'*50}\n")
 
-    # 4. 神秘商店（结束时自己点红叉回主城）
-    if not go_to_mystery_shop():
-        print("⚠️ 神秘商店失败，继续下一个任务")
-    print()
+        # 1. 登录并选存档
+        if not login_and_select_save(num):
+            print(f"❌ 存档 {num} 登录失败，跳过")
+            continue
 
-    # 5. 宠装采集
-    if not go_to_pet_collect():
-        print("⚠️ 宠装采集失败，继续下一个任务")
-    print()
+        # 2. 执行全部日常任务
+        run_single_save_tasks()
 
-    # 6. 骑装养成
-    if not go_to_mount_train():
-        print("⚠️ 骑装养成失败，继续下一个任务")
-    print()
+        # 3. 返回登录界面
+        print(f"\n--- 存档 {num} 完成，返回登录界面 ---")
+        if not wait_and_click("back_to_login.png", timeout=10, desc="返回登录界面"):
+            print(f"❌ 无法返回登录界面，脚本终止")
+            break
+        time.sleep(3)
 
-    # 7. 竞技场
-    if not go_to_arena():
-        print("⚠️ 竞技场失败，继续下一个任务")
-    print()
-
-    # 8. 斗宠大会
-    if not go_to_douchong():
-        print("⚠️ 斗宠大会失败，继续下一个任务")
-    print()
-
-    # 9. 守卫须弥山
-    if not go_to_guard():
-        print("⚠️ 守卫须弥山失败，继续下一个任务")
-    print()
-
-    # 10. 悲鸣冰川系列（枯焰流沙 + 迷雾沮泽）
-    if not go_to_glacier():
-        print("⚠️ 悲鸣冰川系列失败，继续下一个任务")
-    print()
-
-    # 11. 冒险
-    if not go_to_adventure():
-        print("⚠️ 冒险失败，继续下一个任务")
-    print()
-
-    print("🎉 所有日常任务执行完毕")
-
-    # 12. 幽冥血海任务
-    if not go_to_xuehai():
-        print("⚠️ 幽冥血海任务失败，继续下一个任务")
-    print()
-
-    # 13. 宠物任务
-    if not go_to_pet_task():
-        print("⚠️ 宠物任务失败，继续下一个任务")
-    print()
-
-    # 14. 活跃奖励领取
-    if not go_to_active():
-        print("⚠️ 活跃奖励领取失败，继续下一个任务")
-    print()
 
 if __name__ == "__main__":
-    print("5秒后开始，请确保游戏处于登录界面（开始游戏按钮可见）...")
-    run_daily_tasks()
+    print("5秒后开始，请确保游戏处于登录界面...")
+    run_all_saves([1, 2])   # 先做存档1和2
